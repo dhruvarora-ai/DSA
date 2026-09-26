@@ -1,8 +1,8 @@
 class Solution {
 public:
-    bool bloom(vector<int>&bloomDay, int m, int k, int mid){
-        int flowers = 0;
-        int bouquets = 0;
+    bool check(vector<int>&bloomDay, int m, int k, int mid){
+        int flowers=0;
+        int boqt = 0;
         for(int i=0; i<bloomDay.size(); i++){
             if(bloomDay[i]<=mid){
                 flowers++;
@@ -11,29 +11,27 @@ public:
                 flowers=0;
             }
             if(flowers==k){
-                bouquets++;
+                boqt++;
                 flowers=0;
             }
-
-            if(bouquets==m){
+            if(boqt==m){
                 return true;
             }
         }
         return false;
     }
     int minDays(vector<int>& bloomDay, int m, int k) {
-        if(1LL* m*k> bloomDay.size()){
+        if(1LL *m *k >bloomDay.size()){
             return -1;
         }
-        int low=1;
-        int high = *max_element(bloomDay.begin(), bloomDay.end());
-        int ans = 0;
-
+        int low = 0;
+        int high = *max_element(bloomDay.begin(),bloomDay.end());
+        int ans=0;
         while(low<=high){
             int mid = (low+high)/2;
-            bool possible = bloom(bloomDay, m, k, mid);
+            bool possible = check(bloomDay,m,k,mid);
             if(possible){
-                ans = mid;
+                ans=mid;
                 high = mid-1;
             }
             else{
