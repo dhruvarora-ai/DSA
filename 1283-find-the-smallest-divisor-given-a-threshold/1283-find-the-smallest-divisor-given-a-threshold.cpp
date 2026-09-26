@@ -1,27 +1,30 @@
 class Solution {
 public:
-    int sum_division(int divisor, vector<int>& nums){
-        int sum = 0;
-        for(int i=0; i<nums.size();i++){
-            if(nums[i]%divisor==0){
-                sum=sum+ (nums[i]/divisor);
+    bool check(vector<int>& nums, int threshold, int mid){
+        int sum=0;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]%mid==0){
+                sum+= nums[i]/mid;
             }
             else{
-                sum+= (nums[i]/divisor) + 1;
+                sum+= nums[i]/mid +1;
             }
         }
-        return sum;
+        if(sum<=threshold){
+            return true;
+        }
+        return false;
     }
     int smallestDivisor(vector<int>& nums, int threshold) {
       int low = 1;
-      int high = *max_element(nums.begin(), nums.end());  
-      int ans=0;
+      int high = *max_element(nums.begin(),nums.end());
+      int ans=-1;
       while(low<=high){
         int mid = (low+high)/2;
-        int sum = sum_division(mid,nums);
-        if(sum<=threshold){
+        bool possible = check(nums,threshold, mid);
+        if(possible){
             ans=mid;
-            high=mid-1;
+            high = mid-1;
         }
         else{
             low=mid+1;
