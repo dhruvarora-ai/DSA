@@ -6,7 +6,7 @@ public:
         int high = arr.size()-1;
         while(low<=high){
             int mid=(low+high)/2;
-            missing = arr[mid]-mid-1;
+            missing = arr[mid]-(mid+1);
             if(missing<k){
                 low=mid+1;
             }
@@ -14,7 +14,7 @@ public:
                 high = mid-1;
             }
         }
-        return k+high+1;
+        return high+k+1;
         
     }
 };
