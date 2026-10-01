@@ -20,7 +20,7 @@ public:
     int maxDistance(vector<int>& position, int m) {
         sort(position.begin(), position.end());
         int low =1;
-        int high = position[position.size()-1] - position[0];
+        int high = position[position.size()-1];
         int ans=0;
         while(low<=high){
             int mid=(low+high)/2;
