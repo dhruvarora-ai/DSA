@@ -23,10 +23,10 @@ public:
                         temp.push_back({nums[i],nums[j],nums[k],nums[l]});
                         k++;
                         l--;
-                        while(k<nums.size()-1 && nums[k]==nums[k-1]){
+                        while(k<l && nums[k]==nums[k-1]){
                             k++;
                         }
-                        while(l>1 && nums[l]==nums[l+1]){
+                        while(k<l && nums[l]==nums[l+1]){
                             l--;
                         }
                     }
