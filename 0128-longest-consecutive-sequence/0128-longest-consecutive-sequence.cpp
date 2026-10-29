@@ -9,10 +9,10 @@ public:
         int maxl=0;
         for(int i:s){
             int l = 1;
-            if(s.find(i-1)==s.end()){
-                while(s.find(i+1)!=s.end()){
+            if(s.find(i+1)==s.end()){
+                while(s.find(i-1)!=s.end()){
                     l++;
-                    i++;
+                    i--;
                 }
                 maxl = max(maxl,l);
             }
