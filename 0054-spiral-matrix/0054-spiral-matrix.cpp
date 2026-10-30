@@ -25,7 +25,7 @@ public:
                 for(int i= top; i>=bottom; i--){
                     v.push_back(matrix[i][left]);
                 }
-                left++;
+            left++;
             }
         }
         return v;
