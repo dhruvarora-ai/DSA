@@ -12,12 +12,12 @@ public:
                 high--;
                 continue;
             }
-            else if(nums[low]<=nums[mid]){
-                mini=min(mini,nums[low]);
-                low= mid+1;
+            if(nums[low]<=nums[mid]){
+                mini = min(nums[low],mini);
+                low=mid+1;
             }
-            else{
-                mini = min(mini,nums[mid]);
+            else if(nums[mid]<=nums[high]){
+                mini = min(mini, nums[mid]);
                 high = mid-1;
             }
         }
