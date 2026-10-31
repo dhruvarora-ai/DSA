@@ -5,13 +5,11 @@ public:
         for(int i=0; i<nums.size(); i++){
             s.insert(nums[i]);
         }
-        long long el = 1LL* *max_element(nums.begin(),nums.end())+1;
-        for(int i=1; i<=nums.size(); i++){
+        for(int i=1; i<=nums.size()+1; i++){
             if(s.find(i)==s.end()){
-                el = i;
-                break;
+                return i;
             }
         }
-        return el;
+        return -1;
     }
 };
