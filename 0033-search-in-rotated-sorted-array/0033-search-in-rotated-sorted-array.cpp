@@ -4,41 +4,38 @@ public:
         int low = 0;
         int high = nums.size()-1;
         bool insorted = false;
-        int index=-1;
         while(low<=high){
             int mid = (low+high)/2;
             if(nums[mid]==target){
-                index=mid;
-                break;
+                return mid;
             }
             if(insorted){
                 if(nums[mid]>target){
-                    high=mid-1;
+                    high = mid-1;
                 }
-                else{
+                else if(nums[mid]<target){
                     low=mid+1;
                 }
                 continue;
             }
-            if(nums[low]<=nums[mid]){
-                if(target>=nums[low] && target<nums[mid]){
+            if(nums[mid]>=nums[low]){
+                if(nums[low]<=target && nums[mid]>target){
+                    insorted= true;
                     high = mid-1;
-                    insorted = true;
                 }
                 else{
-                    low = mid+1;
+                    low=mid+1;
                 }
             }
             else if(nums[mid]<=nums[high]){
                 if(nums[mid]<target && nums[high]>=target){
                     low=mid+1;
-                    insorted=true;
                 }
                 else{
-                    high=mid-1;
+                    high = mid-1;
                 }
             }
         }
-        return index;
+        return -1;
     }
 };
