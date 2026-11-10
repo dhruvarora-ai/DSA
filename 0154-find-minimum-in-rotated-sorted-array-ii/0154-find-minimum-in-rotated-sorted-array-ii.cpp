@@ -7,17 +7,17 @@ public:
         while(low<=high){
             int mid = (low+high)/2;
             if(nums[low]==nums[mid] && nums[mid]==nums[high]){
-                mini = min(mini,nums[mid]);
+                mini =min(mini,nums[mid]);
                 low++;
                 high--;
                 continue;
             }
             if(nums[low]<=nums[mid]){
                 mini = min(nums[low],mini);
-                low=mid+1;
+                low = mid+1;
             }
             else if(nums[mid]<=nums[high]){
-                mini = min(mini, nums[mid]);
+                mini = min(nums[mid],mini);
                 high = mid-1;
             }
         }
