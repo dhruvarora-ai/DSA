@@ -35,12 +35,10 @@ public:
                 left = check_palindrome(s,p1);
                 right = check_palindrome(s,p2);
                 if(left){
-                    p1+= 2;
-                    p2--;
+                    return true;
                 }
                 else if(right){
-                    p2-= 2;
-                    p1++;
+                    return true;
                 }
                 else{
                     return false;
