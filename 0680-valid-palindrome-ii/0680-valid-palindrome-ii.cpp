@@ -21,33 +21,23 @@ public:
         return true;
     }
     bool validPalindrome(string s) {
-        int p1 =0;
+        int p1 = 0;
         int p2 = s.size()-1;
-        int mismatch =0;
-        bool left=false;
+        bool left =false;
         bool right = false;
         while(p1<p2){
             if(s[p1]!=s[p2]){
-                mismatch+= 1;
-                if(mismatch>1){
-                    return false;
-                }
-                left = check_palindrome(s,p1);
-                right = check_palindrome(s,p2);
-                if(left){
-                    return true;
-                }
-                else if(right){
+                left = check_palindrome(s, p1);
+                right = check_palindrome(s, p2);
+                if(left ==true || right==true){
                     return true;
                 }
                 else{
                     return false;
                 }
             }
-            else{
-                p1++;
-                p2--;
-            }
+            p1++;
+            p2--;
         }
         return true;
     }
